@@ -1,0 +1,4 @@
+<h3>Tickets:</h3>
+<ul class="list-group">
+  <li class="list-group-item" ng-repeat="ticket in main.tickets"><a ui-sref='ticket({ticketId: ticket.id})'><b>{{ticket.title}}</b></a><br><pre>{{ticket.content.split("\n")[0]}}</pre></li>
+</ul>
