@@ -5,7 +5,7 @@
 <br>
 <div class="clearfix"></div>
 <h3>Add a new Ticket:</h3>
-<form name="main.addForm" class="form" ng-submit='main.addNewTicket()'>
+<form name="main.addForm" class="form" ng-submit='main.addNewTicket()' novalidate="true">
       <div class="form-group">
           <label>Title</label>
           <input type="text" class="form-control" ng-model="main.newTicket.title" required />

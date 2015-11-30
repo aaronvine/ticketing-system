@@ -1,4 +1,4 @@
-<h3>Ticket #{{main.currentId}}</h3>
-<b>{{main.tickets[main.currentId - 1].title}}</b><br><pre>{{main.tickets[main.currentId - 1].content}}</pre>
+<h3>Ticket #{{ticketCtrl.ticket.id}}</h3>
+<b>{{ticketCtrl.ticket.title}}</b><br><pre>{{ticketCtrl.ticket.content}}</pre>
 <br>
 <a ui-sref='tickets-list'><b>go back</b></a>
