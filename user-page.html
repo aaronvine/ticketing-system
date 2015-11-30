@@ -1,0 +1,4 @@
+<h3>{{user.currentEmailFilter}}'s Tickets:</h3>
+<ul class="list-group">
+  <li class="list-group-item" ng-repeat="ticket in user.tickets | filter:user.currentEmailFilter"><b>{{ticket.title}}</b><br><pre>{{ticket.content}}</pre></li>
+</ul>

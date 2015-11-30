@@ -2,3 +2,25 @@
 <ul class="list-group">
   <li class="list-group-item" ng-repeat="ticket in main.tickets"><a ui-sref='ticket({ticketId: ticket.id})'><b>{{ticket.title}}</b></a><br><pre>{{ticket.content.split("\n")[0]}}</pre></li>
 </ul>
+<br>
+<div class="clearfix"></div>
+<h3>Add a new Ticket:</h3>
+<form name="main.addForm" class="form" ng-submit='main.addNewTicket()'>
+      <div class="form-group">
+          <label>Title</label>
+          <input type="text" class="form-control" ng-model="main.newTicket.title" required />
+      </div>
+      <div class="form-group">
+          <label>Email address</label>
+          <input type="email" class="form-control" ng-model="main.newTicket.userEmail" required />
+      </div>
+      <div class="form-group">
+          <label>Content</label>
+          <textarea type="text" rows="5" class="form-control" ng-model="main.newTicket.content" required /></textarea>
+      </div>
+      <div class="row">
+          <div class="col-xs-6">
+              <button class="btn btn-success pull-right"><span class="glyphicon glyphicon-plus-sign"></span> Add</button>
+          </div>
+      </div>
+</form>
