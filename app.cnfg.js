@@ -7,6 +7,12 @@ app.config(function ($stateProvider, $urlRouterProvider) {
             controller: 'MainController',
             controllerAs: 'main'
         })
+        .state('tickets-list.form', {
+            url: '/form',
+            templateUrl: '/new-ticket-form.html',
+            controller: 'FormController',
+            controllerAs: 'form'
+        })
         .state('ticket', {
             url: '/tickets-list/:ticketId',
             templateUrl: 'ticket.html',

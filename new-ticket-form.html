@@ -1,0 +1,24 @@
+<br>
+<div class="clearfix"></div>
+<h3>Add a new Ticket:</h3>
+<form name="ticketForm" class="form" ng-submit='form.addNewTicket(ticketForm.$valid)' novalidate>
+      <div class="form-group">
+          <label>Title</label>
+          <input type="text" name="title" class="form-control" ng-model="form.newTicket.title" ng-minlength="3" ng-maxlength="50" required/>
+          <p ng-show="ticketForm.title.$invalid" class="help-block">Title is required.</p>
+      </div>
+      <div class="form-group">
+          <label>Email address</label>
+          <input type="email" name="userEmail" class="form-control" ng-model="form.newTicket.userEmail" ng-pattern="/^[a-z]+[a-z0-9._]+@[a-z]+\.[a-z.]{2,5}$/" required/>
+          <p ng-show="ticketForm.userEmail.$invalid" class="help-block">Enter a valid email address.</p>
+      </div>
+      <div class="form-group">
+          <label>Content</label>
+          <textarea type="text" name="content" rows="5" class="form-control" ng-model="form.newTicket.content"/></textarea>
+      </div>
+      <div class="row">
+          <div class="col-xs-6">
+              <button class="btn btn-success pull-right" ng-disabled="ticketForm.$invalid"><span class="glyphicon glyphicon-plus-sign"></span>Add</button>
+          </div>
+      </div>
+</form>
