@@ -1,4 +1,7 @@
-<h3>Ticket ID: #{{ticketCtrl.ticket.id}}, User Email: {{ticketCtrl.ticket.userEmail}}</h3>
-<b>{{ticketCtrl.ticket.title}}</b><br><pre>{{ticketCtrl.ticket.content}}</pre>
+<h3>Ticket ID: #{{ticketCtrl.ticket.id}} , User Email: <a ui-sref="user-page({email: ticketCtrl.ticket.userEmail})">{{ticketCtrl.ticket.userEmail}}</a></h3>
+<ul class="list-group">
+  <li class="list-group-item" <b>{{ticketCtrl.ticket.title}}</b><br><pre>{{ticketCtrl.ticket.content}}</pre></li>
+</ul>
 <br>
-<a ui-sref='tickets-list'><b>go back</b></a>
+<a ui-sref='tickets-list'><b>Go Back</b></a>
+<br><br>

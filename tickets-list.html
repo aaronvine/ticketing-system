@@ -2,5 +2,7 @@
 <ul class="list-group">
   <li class="list-group-item" ng-repeat="ticket in main.tickets"><a ui-sref='ticket({ticketId: ticket.id})'><b>{{ticket.title}}</b></a><br><pre>{{ticket.content.split("\n")[0]}}</pre></li>
 </ul>
-<a ui-sref='.form'><b>add ticket</b></a>
+<a ui-sref='.form'><b>Add a Ticket</b></a>
+<br>
 <div ui-view></div>
+<br><br>
