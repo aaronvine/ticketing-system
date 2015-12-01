@@ -1,41 +1,31 @@
-app.service('ticketsService', function () {
+app.service('ticketsService', function (localStorageService) {
     var _this = this;
     _this.title = 'Ticketing system';
-    _this.tickets = [
-    {
-        title: 'the title',
-        content: 'my domain is broken!!!!',
-        userEmail: 'bob@bobcorp.com'
-    },
-    {
-        title: 'second title',
-        content: 'hello\ni have a lot of problems\ngoodbye',
-        userEmail: 'foo@goo.com'
-    },
-    {
-        title: 'help me',
-        content: 'lost my site\nrecover it',
-        userEmail: 'alice@alicecorp.com'
-    },
-    {
-        title: 'alice again',
-        content: 'lost my site again\npleaseee recover it\nblah blah blash',
-        userEmail: 'alice@alicecorp.com'
-    },
-    {
-        title: 'the title 4',
-        content: 'my domain is broken once again!!!!\narrghhh',
-        userEmail: 'bob@bobcorp.com'
-    }
-    ];
+    _this.tickets = localStorageService.getTickets();
+    _this.observerCallbacks = [];
 
-    _this.tickets = _this.tickets.map(function (ticket) {
-        ticket.id = uuid();
-        return ticket;
-    });
+    _this.registerObserverCallback = function (callback) {
+        _this.observerCallbacks.push(callback);
+    };
+
+    _this.notifyObservers = function () {
+        angular.forEach(_this.observerCallbacks, function (callback) {
+            callback();
+        });
+    };
 
     _this.addNewTicketToService = function (newTicket) {
         newTicket.id = uuid();
-        _this.tickets.push(newTicket);
+        localStorageService.addNewTicketToStorage(newTicket);
+        _this.tickets = localStorageService.getTickets();
+        _this.notifyObservers();
+    };
+
+    _this.getTickets = function () {
+        return _this.tickets;
+    };
+
+    _this.getTitle = function () {
+        return _this.title;
     };
 });
